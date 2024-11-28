@@ -1,91 +1,84 @@
-# Teaclave: A Universal Secure Computing Platform
-
-[![License](https://img.shields.io/badge/license-Apache-green.svg)](LICENSE)
-[![Release](https://img.shields.io/github/v/tag/apache/incubator-teaclave?label=release&sort=semver)](https://github.com/apache/incubator-teaclave/releases)
-[![Coverage Status](https://coveralls.io/repos/github/apache/incubator-teaclave/badge.svg?branch=master)](https://coveralls.io/github/apache/incubator-teaclave?branch=master)
-[![Homepage](https://img.shields.io/badge/site-homepage-blue)](https://teaclave.apache.org/)
-
-Apache Teaclave (incubating) is an open source ***universal secure computing***
-platform, making computation on privacy-sensitive data safe and simple.
-
-## Highlights
-
-- **Secure and Attestable**:
-  Teaclave adopts multiple security technologies to enable secure computing. In
-  particular, Teaclave uses Intel SGX to serve the most security-sensitive tasks
-  with *hardware-based isolation*, *memory encryption* and *attestation*.
-  Also, Teaclave is written in Rust to prevent *memory-safety* issues.
-- **Function-as-a-Service**:
-  Teaclave is provided as a *function-as-a-service platform*. With many built-in
-  functions, it supports tasks like machine learning, private set intersection,
-  crypto computation, etc. In addition, developers can also deploy and execute
-  Python scripts in Teaclave. More importantly, unlike traditional FaaS,
-  Teaclave supports both general secure computing tasks and *flexible
-  single- and multi-party secure computation*.
-- **Ease of Use**:
-  Teaclave builds its components in containers, therefore, it supports
-  deployment both locally and within cloud infrastructures. Teaclave also
-  provides convenient endpoint APIs, client SDKs and command line tools.
-- **Flexible**:
-  Components in Teaclave are designed in a modular manner, and features like remote
-  attestation can be easily embedded in other projects. In addition, Teaclave
-  SGX SDK and Teaclave TrustZone SDK can also be used separately to write TEE
-  apps for other purposes.
-
-## Getting Started
-
-### Try Teaclave
-
-- [My First Function](docs/my-first-function.md)
-- [Write Functions in Python](docs/functions-in-python.md)
-- [How to Add Built-in Functions](docs/builtin-functions.md)
-- [Deploying Teaclave on Azure Confidential Computing VM](docs/azure-confidential-computing.md)
-- [Executing WebAssembly in Teaclave](docs/executing-wasm.md)
-- [Running LibOS in Teaclave](docs/executing-in-occlum.md)
-
-### Design
-
-- [Threat Model](docs/threat-model.md)
-- [Mutual Attestation: Why and How](docs/mutual-attestation.md)
-- [Access Control](docs/access-control.md)
-- [Build System](docs/build-system.md)
-- [Teaclave Service Internals](docs/service-internals.md)
-- [Adding Executors](docs/adding-executors.md)
-- [Papers, Talks, and Related Articles](docs/papers-talks.md)
-
-### Contribute to Teaclave
-
-- [Release Guide](docs/release-guide.md)
-- [Rust Development Guideline](docs/rust-guideline.md)
-- [Development Tips](docs/development-tips.md)
-
-### API References
-
-- [Teaclave SGX SDK](https://teaclave.apache.org/api-docs/sgx-sdk/)
-- [Teaclave Client SDK (Python)](https://teaclave.apache.org/api-docs/client-sdk-python/)
-- [Teaclave Client SDK (Rust)](https://teaclave.apache.org/api-docs/client-sdk-rust/)
-- [Crates in Teaclave (Enclave)](https://teaclave.apache.org/api-docs/crates-enclave/)
-- [Crates in Teaclave (App)](https://teaclave.apache.org/api-docs/crates-app/)
-
-## Teaclave Projects
-
-This is the main repository for the Teaclave FaaS platform. There are several
-sub-projects under Teaclave:
-
-- [Teaclave SGX SDK](https://github.com/apache/incubator-teaclave-sgx-sdk)
-- [Teaclave TrustZone SDK](https://github.com/apache/incubator-teaclave-trustzone-sdk)
-- [Teaclave Java TEE SDK](https://github.com/apache/incubator-teaclave-java-tee-sdk)
-
-## Contributing
-
-Teaclave is open source in [The Apache Way](https://www.apache.org/theapacheway/),
-we aim to create a project that is maintained and owned by the community. All
-kinds of contributions are welcome. Read this [document](CONTRIBUTING.md) to
-learn more about how to contribute. Thanks to our
-[contributors](https://teaclave.apache.org/contributors/).
-
-## Community
-
-- Join us on our [mailing list](https://lists.apache.org/list.html?dev@teaclave.apache.org).
-- Follow us at [@ApacheTeaclave](https://twitter.com/ApacheTeaclave).
-- See [more](https://teaclave.apache.org/community/).
+<div class="Box-sc-g0xbh4-0 QkQOb js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto" _msttexthash="69049344" _msthash="363">Teaclave：通用安全计算平台</h1><a id="user-content-teaclave-a-universal-secure-computing-platform" class="anchor" aria-label="Permalink： Teaclave：通用安全计算平台" href="#teaclave-a-universal-secure-computing-platform" _mstaria-label="2261753" _msthash="364"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="/apache/incubator-teaclave/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/12e72fd0e23e8b88c2a0e56ac8580b2ab4c4f33630eadf396a20073a3856200c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4170616368652d677265656e2e737667" alt="许可证" data-canonical-src="https://img.shields.io/badge/license-Apache-green.svg" style="max-width: 100%;" _mstalt="93288" _msthash="365"></a>
+<a href="https://github.com/apache/incubator-teaclave/releases"><img src="https://camo.githubusercontent.com/8c5ab1753e789ae87c132d716b9586b348391c3ef7ec2c9f084ab25e0caa40c6/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f7461672f6170616368652f696e63756261746f722d746561636c6176653f6c6162656c3d72656c6561736526736f72743d73656d766572" alt="释放" data-canonical-src="https://img.shields.io/github/v/tag/apache/incubator-teaclave?label=release&amp;sort=semver" style="max-width: 100%;" _mstalt="92612" _msthash="366"></a>
+<a href="https://coveralls.io/github/apache/incubator-teaclave?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/e30ab9124c2b2c63b54bd59f1f52d12a0f35da3c75c7a6308f330027724fc074/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f6170616368652f696e63756261746f722d746561636c6176652f62616467652e7376673f6272616e63683d6d6173746572" alt="覆盖状态" data-canonical-src="https://coveralls.io/repos/github/apache/incubator-teaclave/badge.svg?branch=master" style="max-width: 100%;" _mstalt="259493" _msthash="367"></a>
+<a href="https://teaclave.apache.org/" rel="nofollow"><img src="https://camo.githubusercontent.com/9d7f9293b0fe4f46d05f9582c61fc52645bd2b1078f8fed024e519bb669164ec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f736974652d686f6d65706167652d626c7565" alt="主页" data-canonical-src="https://img.shields.io/badge/site-homepage-blue" style="max-width: 100%;" _mstalt="110916" _msthash="368"></a></p>
+<p dir="auto" _msttexthash="537055922" _msthash="369">Apache Teaclave（孵化）是一个开源<em _istranslated="1"><strong _istranslated="1">的通用安全计算</strong></em>平台，使隐私敏感数据的计算变得安全而简单。</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="5036395" _msthash="370">突出</h2><a id="user-content-highlights" class="anchor" aria-label="永久链接：亮点" href="#highlights" _mstaria-label="438997" _msthash="371"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li _msttexthash="1828192353" _msthash="372"><strong _istranslated="1">安全且可证明</strong>：
+Teaclave 采用多种安全技术来实现安全计算。在
+特别是，Teaclave 使用 Intel SGX 来执行最安全敏感的任务
+具有<em _istranslated="1">基于硬件的隔离</em>、<em _istranslated="1">内存加密</em>和<em _istranslated="1">证明</em>。
+此外，Teaclave 是用 Rust 编写的，以防止<em _istranslated="1">内存安全</em>问题。</li>
+<li _msttexthash="2739052979" _msthash="373"><strong _istranslated="1">功能即服务</strong>：
+Teaclave 作为<em _istranslated="1">功能即服务平台</em>提供。内置许多
+函数，它支持机器学习、私有集交集、
+加密计算等。此外，开发人员还可以部署和执行
+Teaclave 中的 Python 脚本。更重要的是，与传统的 FaaS 不同，
+Teaclave 支持通用的安全计算任务和<em _istranslated="1">灵活的
+单方和多方安全计算</em>。</li>
+<li _msttexthash="816502063" _msthash="374"><strong _istranslated="1">易用性</strong>：
+Teaclave 在容器中构建其组件，因此，它支持
+在本地和云基础设施中部署。Teaclave 也
+提供便捷的终端节点 API、客户端 SDK 和命令行工具。</li>
+<li _msttexthash="1204592961" _msthash="375"><strong _istranslated="1">灵活</strong>：
+Teaclave 中的组件以模块化方式设计，具有远程
+证明可以很容易地嵌入到其他项目中。此外，Teaclave
+SGX SDK 和 Teaclave TrustZone SDK 也可以单独用于编写 TEE
+用于其他目的的应用程序。</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="4603768" _msthash="376">开始</h2><a id="user-content-getting-started" class="anchor" aria-label="永久链接： 开始使用" href="#getting-started" _mstaria-label="591461" _msthash="377"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="6508892" _msthash="378">试用 Teaclave</h3><a id="user-content-try-teaclave" class="anchor" aria-label="永久链接： 试用 Teaclave" href="#try-teaclave" _mstaria-label="469144" _msthash="379"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="/apache/incubator-teaclave/blob/master/docs/my-first-function.md" _msttexthash="23466534" _msthash="380">我的第一个功能</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/functions-in-python.md" _msttexthash="22916790" _msthash="381">用 Python 编写函数</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/builtin-functions.md" _msttexthash="26587821" _msthash="382">如何添加内置函数</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/azure-confidential-computing.md" _msttexthash="48183473" _msthash="383">在 Azure 机密计算 VM 上部署 Teaclave</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/executing-wasm.md" _msttexthash="20399119" _msthash="384">在 Teaclave 中执行 WebAssembly</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/executing-in-occlum.md" _msttexthash="22736129" _msthash="385">在 Teaclave 中运行 LibOS</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="6972914" _msthash="386">设计</h3><a id="user-content-design" class="anchor" aria-label="永久链接： 设计" href="#design" _mstaria-label="300651" _msthash="387"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="/apache/incubator-teaclave/blob/master/docs/threat-model.md" _msttexthash="11616878" _msthash="388">威胁模型</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/mutual-attestation.md" _msttexthash="42961334" _msthash="389">相互证明：原因和方式</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/access-control.md" _msttexthash="10080759" _msthash="390">存取控制</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/build-system.md" _msttexthash="12905841" _msthash="391">构建系统</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/service-internals.md" _msttexthash="35957948" _msthash="392">Teaclave 服务内部原理</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/adding-executors.md" _msttexthash="20489261" _msthash="393">添加执行程序</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/papers-talks.md" _msttexthash="39439543" _msthash="394">论文、讲座和相关文章</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="21106891" _msthash="395">为 Teaclave 做贡献</h3><a id="user-content-contribute-to-teaclave" class="anchor" aria-label="永久链接： 为 Teaclave 做贡献" href="#contribute-to-teaclave" _mstaria-label="866229" _msthash="396"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="/apache/incubator-teaclave/blob/master/docs/release-guide.md" _msttexthash="10195172" _msthash="397">发布指南</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/rust-guideline.md" _msttexthash="15040506" _msthash="398">Rust 开发指南</a></li>
+<li><a href="/apache/incubator-teaclave/blob/master/docs/development-tips.md" _msttexthash="10519990" _msthash="399">开发技巧</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="7496489" _msthash="400">API 参考</h3><a id="user-content-api-references" class="anchor" aria-label="永久链接：API 参考" href="#api-references" _mstaria-label="526526" _msthash="401"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://teaclave.apache.org/api-docs/sgx-sdk/" rel="nofollow" _msttexthash="29173820" _msthash="402">Teaclave SGX 开发工具包</a></li>
+<li><a href="https://teaclave.apache.org/api-docs/client-sdk-python/" rel="nofollow" _msttexthash="58720129" _msthash="403">Teaclave 客户端 SDK （Python）</a></li>
+<li><a href="https://teaclave.apache.org/api-docs/client-sdk-rust/" rel="nofollow" _msttexthash="56949451" _msthash="404">Teaclave 客户端 SDK （Rust）</a></li>
+<li><a href="https://teaclave.apache.org/api-docs/crates-enclave/" rel="nofollow" _msttexthash="70675202" _msthash="405">Teaclave （Enclave） 的板条箱</a></li>
+<li><a href="https://teaclave.apache.org/api-docs/crates-app/" rel="nofollow" _msttexthash="67622295" _msthash="406">Teaclave 中的板条箱 （App）</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="14055470" _msthash="407">Teaclave 项目</h2><a id="user-content-teaclave-projects" class="anchor" aria-label="永久链接： Teaclave Projects" href="#teaclave-projects" _mstaria-label="675974" _msthash="408"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="205222095" _msthash="409">这是 Teaclave FaaS 平台的主存储库。有几个
+Teaclave 下的子项目：</p>
+<ul dir="auto">
+<li><a href="https://github.com/apache/incubator-teaclave-sgx-sdk" _msttexthash="29173820" _msthash="410">Teaclave SGX 开发工具包</a></li>
+<li><a href="https://github.com/apache/incubator-teaclave-trustzone-sdk" _msttexthash="38090208" _msthash="411">Teaclave TrustZone 开发工具包</a></li>
+<li><a href="https://github.com/apache/incubator-teaclave-java-tee-sdk" _msttexthash="35084270" _msthash="412">Teaclave Java TEE 开发工具包</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="6354283" _msthash="413">贡献</h2><a id="user-content-contributing" class="anchor" aria-label="永久链接： 贡献" href="#contributing" _mstaria-label="521066" _msthash="414"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="1291918459" _msthash="415">Teaclave 在 <a href="https://www.apache.org/theapacheway/" rel="nofollow" _istranslated="1">The Apache Way</a> 中是开源的，
+我们的目标是创建一个由社区维护和拥有的项目。都
+欢迎各种贡献。阅读<a href="/apache/incubator-teaclave/blob/master/CONTRIBUTING.md" _istranslated="1">本文档</a>以
+详细了解如何做出贡献。感谢我们的<a href="https://teaclave.apache.org/contributors/" rel="nofollow" _istranslated="1">贡献者</a>。</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="5040282" _msthash="416">社区</h2><a id="user-content-community" class="anchor" aria-label="永久链接： 社区" href="#community" _mstaria-label="413062" _msthash="417"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li _msttexthash="36378849" _msthash="418">加入我们的<a href="https://lists.apache.org/list.html?dev@teaclave.apache.org" rel="nofollow" _istranslated="1">邮件列表</a>。</li>
+<li _msttexthash="36554349" _msthash="419">在 <a href="https://twitter.com/ApacheTeaclave" rel="nofollow" _istranslated="1">@ApacheTeaclave</a> 关注我们。</li>
+<li _msttexthash="13396149" _msthash="420"><a href="https://teaclave.apache.org/community/" rel="nofollow" _istranslated="1">查看更多</a>。</li>
+</ul>
+</article></div>
